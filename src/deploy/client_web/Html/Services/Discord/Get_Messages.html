@@ -1,0 +1,66 @@
+<style>
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: 50%;
+        border: 1px solid white;
+        border-radius: 2px;
+        margin-right: 2rem;
+        padding-right: 2rem;
+    }
+</style>
+
+
+<div class="col-12 row" style="border-left: solid 1px #ff4b08;">
+
+
+    <div class="col-6 text-right">
+        <p style="font-size: 130%;"><span style="color: #ff4b08;">Channel</span></p>
+        <p style="font-size: 130%;"><span style="color: #ff4b08;">startWith</span></p>
+    </div>
+
+    <div class="col-6 text text-left">
+        <p style="font-size: 130%;"> <input id="channel" value="819090057750904833"
+            style="background-color: #252525; color: white; border: none; border-bottom: solid 1px white; width: 75%"
+            class="areaConditionArgs"></p>
+            <p style="font-size: 130%;"> <input id="startWith" value="all"
+                style="background-color: #252525; color: white; border: none; border-bottom: solid 1px white; width: 75%"
+                class="areaConditionArgs"></p>
+
+        <div id="test"></div>
+    </div>
+
+
+</div>
+
+
+<script>
+
+    var btnLink = ""
+
+    function getLoginUrl() {
+        fetch('https://area-georges.herokuapp.com/discordOauth', {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        }).then((response) => {
+            response.json().then((res) => {
+                console.log(res)
+                btnLink = res
+                window.open(btnLink, '_blank');
+                // window.location.href = btnLink
+            })
+        })
+    }
+    $("#btn-connect-action").show();
+    $("#btn-disconnect-action").hide();
+
+    $("#btn-connect-action").click(function () {
+        getLoginUrl()
+    })
+</script>

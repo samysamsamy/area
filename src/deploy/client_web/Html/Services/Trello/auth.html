@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+Redirection
+</html>
+<script>
+
+    if (window.location.hash) {
+        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        // fetch('', {
+        //     method: 'POST',
+        //     body: "token=" + hash,
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //     }
+        // }).then((response) => {
+        //     window.location.href = ("https://area-georges.herokuapp.com/trelloOauth2callback?token=" + hash)
+        // })
+        window.location.href = ("https://area-georges.herokuapp.com/trelloOauth2callback?token=" + hash)
+    }
+</script>

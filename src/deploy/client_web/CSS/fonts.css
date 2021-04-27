@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "SofiaProMedium";
+    src: url("../assets/fonts/SofiaProMedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "SofiaPro";
+    src: url("../assets/fonts/SofiaProRegular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "SofiaProLight";
+    src: url("../assets/fonts/SofiaProLight.ttf") format("truetype");
+}
+
+
+h1, h2, h5, h6, button {
+    font-family: "SofiaProMedium" !important;
+    color: white;
+}
+
+span, p, a {
+    font-family: "SofiaProLight" !important;
+    color: white;
+}
+
+.if-prefix, .then-prefix {
+    font-family: "SofiaProMedium" !important;
+    text-transform: uppercase;
+    font-size: 100%;
+}

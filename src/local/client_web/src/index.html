@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <META name="language" content="fr">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="Epitech: Dashboard project">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <script src="Scripts/libs/jquery.js"></script>
+    <script src="Scripts/libs/popper.js"></script>
+    <script src="Scripts/libs/bootstrap.js"></script>
+    <script src="Scripts/libs/mdb.js"></script>
+    <script src="Scripts/libs/jquery-ui.js"></script>
+    <script src="Scripts/libs/jquery-ui-touch-punch.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="CSS/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="CSS/libs/mdb.css">
+    <link rel="stylesheet" type="text/css" href="CSS/navbar.css">
+    <link rel="stylesheet" type="text/css" href="CSS/fonts.css">
+
+    <title>AREA</title>
+</head>
+
+<style>
+    .btn-switch-orange {
+        background-color: #ff4b08 !important;
+        color: black !important;
+    }
+
+    .btn-switch-dark {
+        background-color: #424041 !important;
+        color: white !important;
+    }
+
+    .underline-text {
+        text-decoration: underline;
+    }
+</style>
+
+<style>
+    .area-container {
+        background-color: #424041;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .area-condition {
+        background-color: #252525;
+        border-radius: 10px;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 130%;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="container-fluid">
+                <h1 class="navbar-brand" style="color:#ff4b08; font-size: 200%;">Area <span
+                        style="color:#ffa908; font-size: 30%;">v1.12.1</span></h1>
+            </div>
+            <div class="col-6 text-right">
+                <h5 class="text-white">Welcome <span id="nav-user-name">Stranger</span></h5>
+                <a class="text-white btn btn-sm btn-dark links-deco">log out</a>
+            </div>
+        </div>
+        <div class="col-12">
+            <a class="text-white mr-5 ml-3" id="dashboard-navBtn">Dashboard</a>
+            <a class="text-white mr-5" id="service-navBtn" href="Html/Area_service_widget.html">Services / Widgets</a>
+            <a class="text-white" id="links-navBtn" href="Html/Area_links.html">Create Links</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="col-12 row" id="main">
+        <div class="card m-3 col-3" style="background-color: #252525;">
+            <div class="card-body">
+                <div class="col-12 d-flex justify-content-between">
+                    <h5 class="card-title" style="color: #ff4b08;">Account</h5>
+                    <i class="far fa-user"></i>
+                </div>
+
+                <p class="card-text">
+                <div class="col-12 row">
+                    <div class="col-3">
+                        <p class="text-white">email</p>
+                        <p class="text-white">password</p>
+                    </div>
+                    <div class="col-9">
+                        <p class="card-user-email text-white">...</p>
+                        <p class="card-user-password text-white">*********</p>
+                    </div>
+                </div>
+                <a class="text-white btn btn-sm btn-dark links-deco">log out</a>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card m-3 col-8" style="background-color: #252525;">
+            <div class="card-body">
+                <div class="col-12 d-flex justify-content-between">
+                    <h5 class="card-title" style="color: #ff4b08;">Areas</h5>
+                    <i class="far fa-user"></i>
+                </div>
+
+                <div id="areaList">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: #252525;">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="staticBackdropLabel">Login to use Area</h5>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" id="loginPopupTab" class="btn btn-switch-orange">
+                            login
+                        </button>
+                        <button type="button" id="registerPopupTab" class="btn btn-switch-dark">
+                            register
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-content" id="ex2-content">
+                    <div class="tab-pane fade show active" id="loginPopupTabs" role="tabpanel"
+                        aria-labelledby="loginPopupTab">
+                        <form>
+                            <div class="col-12">
+                                <p style="font-size: 130%" class="bold-text">Login</p>
+                                <div class="form-outline">
+                                    <input placeholder="Email" type="text" id="l-email" class="form-control" />
+                                    <label class="form-label" for="l-email">email</label>
+                                </div>
+                                <div class="form-outline">
+                                    <input placeholder="Password" type="text" id="l-password" class="form-control" />
+                                    <label class="form-label" for="l-password">password</label>
+                                </div>
+                                <p id="l-msg-error" style="color: red;"></p>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="button"
+                                    class="btn btn-sm loginPopupBtn btn-switch-orange">Valider</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="registerPopupTabs" role="tabpanel"
+                        aria-labelledby="registerPopupTab">
+                        <form>
+                            <div class="col-12">
+                                <p style="font-size: 130%" class="bold-text">Register</p>
+                                <div class="form-outline">
+                                    <input placeholder="Name" type="text" id="r-name" class="form-control" />
+                                    <label class="form-label" for="r-name">name</label>
+                                </div>
+                                <div class="form-outline">
+                                    <input placeholder="Email" type="email" id="r-email" class="form-control" />
+                                    <label class="form-label" for="r-email">email</label>
+                                </div>
+                                <div class="form-outline">
+                                    <input placeholder="Password" type="password" id="r-password" class="form-control" />
+                                    <label class="form-label" for="r-password">password</label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="button"
+                                    class="btn btn-sm registerPopupBtn btn-switch-orange">Valider</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // $("#dashboard-navBtn").click(function () {
+    //     $('#main').load("Html/Area_dashboard.html")
+    //     $(this).addClass("underline-text")
+    //     $("#service-navBtn").removeClass("underline-text")
+    //     $("#links-navBtn").removeClass("underline-text")
+    // });
+
+    // $("#service-navBtn").click(function () {
+    //     $('#main').load("Html/Area_service_widget.html")
+    //     $(this).addClass("underline-text")
+    //     $("#dashboard-navBtn").removeClass("underline-text")
+    //     $("#links-navBtn").removeClass("underline-text")
+    // });
+
+    // $("#links-navBtn").click(function () {
+    //     $('#main').load("Html/Area_links.html")
+    //     $(this).addClass("underline-text")
+    //     $("#service-navBtn").removeClass("underline-text")
+    //     $("#dashboard-navBtn").removeClass("underline-text")
+    // });
+
+
+    function Logout() {
+        localStorage.clear();
+    }
+
+    $(".links-deco").click(function () {
+        Logout();
+    });
+
+
+
+    fetch('https://area-georges.herokuapp.com/areaFromId', {
+        method: 'post', body: "userID=" + localStorage.getItem("userID"), headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        }
+    }).then((response) => {
+        response.json().then((res) => {
+
+            res.forEach(element => {
+                var newArea = $('<br><div class="col-12 col mb-2"></div>')
+
+                var areaHeader = $('<div class="col-12 row"></div>')
+
+                var modifyBtn = $('<p><i class="fas fa-pencil-alt ml-2 mr-2" style="color: #ff4b08;"></i></p>').click(function () {
+
+                    console.log("modif " + element.id)
+                });
+                var removeBtn = $('<p><i class="fas fa-trash ml-2 mr-2" style="color: #ff4b08;"></i></p>').click(function () {
+                    fetch('https://area-georges.herokuapp.com/deleteAreaFromId', {
+                        method: 'post', body: "id=" + element.id, headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                        }
+                    }).then((response) => {
+                        location.reload();
+                    })
+                    console.log("remove " + element.id)
+                });
+
+                if (element.areaState == "ongoing") {
+                    iconElem = 'fa-pause'
+                } else {
+                    iconElem = 'fa-play'
+                }
+                var stateBtn = $('<p></p>')
+
+                stateBtn.append($('<i class="fas ' + iconElem + ' ml-2 state-ongoing" style="color: #ff4b08;"></i>').click(function () {
+
+                    if ($(this).hasClass('fa-pause')) {
+                        $(this).addClass('fa-play')
+                        $(this).removeClass('fa-pause')
+                        fetch('https://area-georges.herokuapp.com/areaStateChange', {
+                            method: 'post', body: "id=" + element.id + "&state=pause", headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            }
+                        })
+                    } else {
+                        $(this).addClass('fa-pause')
+                        $(this).removeClass('fa-play')
+                        fetch('https://area-georges.herokuapp.com/areaStateChange', {
+                            method: 'post', body: "id=" + element.id + "&state=ongoing", headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            }
+
+                        });
+                    }
+                }))
+
+                areaHeader.append(modifyBtn)
+                areaHeader.append(removeBtn)
+                areaHeader.append(stateBtn)
+                areaHeader.append('<h5 class="ml-5 mr-4">' + element.areaName.replace(/_/g, ' ') + '</h5>')
+
+                newArea.append(areaHeader)
+
+                var areaContent = $('<div class="col-12 area-container"></div>')
+                areaContent.append('<div class="col-2 act-brand d-flex align-items-center"><img class="img-fluid col-10" src="/assets/images/brands/' + element.serviceAction + '/logo.png"></div>')
+                areaContent.append('<div class="col-3 area-condition"><p class="text-white"><span class="if-prefix mr-4">if</span> ' + element.widgetAction.replace(/_/g, ' ') + '</p></div>')
+
+
+                var collapse = $('<div class="arrow col-2 d-flex justify-content-end align-items-center flex-column"></div>')
+                collapse.append('<div class="right-arrow"><i class="fas fa-long-arrow-alt-right text-white" style="font-size: 300%;"></i></div>')
+                collapse.append('<div class="down-arrow"><i class="fas fa-sort-down text-white" style="font-size: 120%;" data-toggle="collapse" data-target="#collapse' + element.id + '" aria-expanded="false" aria-controls="collapseOpenWeather"></i></div>')
+
+
+
+                areaContent.append(collapse)
+
+                areaContent.append('<div class="col-3 area-condition"><p class="text-white"><span class="if-prefix mr-4">then</span> ' + element.widgetReaction.replace(/_/g, ' ') + '</p></div>')
+                areaContent.append('<div class="col-2 act-brand d-flex align-items-center"><img class="img-fluid col-10" src="/assets/images/brands/' + element.serviceReaction + '/logo.png"></div>')
+
+
+                collapseContainer = $('<div class="collapse" id="collapse' + element.id + '"></div>')
+
+
+////////////////////////////////////////////////////////////////////////////////////// DETAILS CONDITIONS
+
+                conditionDetails = $('<div class="col-6 row mt-3"></div>')
+
+                conditions = element.areaCondition.split('#')
+
+                conditionDetailsp1 = $('<div class="col-2"><p style="font-size: 130%; color: #ff4b08">Args</p></div>')
+
+                conditionDetailsp2 = $('<div class="col-2 text-right"></div>')
+
+                conditionDetailsp3 = $('<div class="col-6"></div>')
+
+
+
+                conditions.forEach(elem => {
+                    var key = elem.split("=")[0];
+                    var value = elem.split("=")[1];
+                    conditionDetailsp2.append('<p style="font-size: 130%; color: #ff4b08">' + key + '</p>')
+                    conditionDetailsp3.append('<p style="font-size: 130%">' + value + '</p>')
+                })
+
+                conditionDetails.append(conditionDetailsp1)
+                conditionDetails.append(conditionDetailsp2)
+                conditionDetails.append(conditionDetailsp3)
+
+////////////////////////////////////////////////////////////////////////////////////// DETAILS INSTRUCTIONS
+
+                instructionDetails = $('<div class="col-6 row mt-3"></div>')
+
+                instructions = element.areaInstruction.split('#')
+
+                instructionDetailsp1 = $('<div class="col-2"><p style="font-size: 130%; color: #ff4b08">Args</p></div>')
+
+                instructionDetailsp2 = $('<div class="col-2 text-right"></div>')
+
+                instructionDetailsp3 = $('<div class="col-"6></div>')
+
+
+
+                instructions.forEach(elem => {
+                    var key = elem.split("=")[0];
+                    var value = elem.split("=")[1];
+                    instructionDetailsp2.append('<p style="font-size: 130%; color: #ff4b08">' + key + '</p>')
+                    instructionDetailsp3.append('<p style="font-size: 130%">' + value + '</p>')
+                })
+
+                instructionDetails.append(instructionDetailsp1)
+                instructionDetails.append(instructionDetailsp2)
+                instructionDetails.append(instructionDetailsp3)
+
+////////////////////////////////////////////////////////////////////////////////////// DETAILS GENERAL
+
+
+                generalDetails = $('<div class="col-12 offset-1 row"></div>')
+
+                generalDetails.append(conditionDetails)
+                generalDetails.append(instructionDetails)
+
+                collapseContainer.append('<div class="area-container"></div>')
+
+                collapseContainer.append(generalDetails)
+
+                newArea.append(areaContent)
+                newArea.append(collapseContainer)
+
+                $("#areaList").append(newArea)
+            });
+
+        })
+    })
+
+
+    $(".modif-area-btn").click(function () {
+        const areaId = $(this).attr("id").split('-')[1]
+
+        console.log("modif " + areaId)
+    });
+
+    function Register() {
+        userName = $("#r-name").val()
+        userEmail = $("#r-email").val()
+        userPassword = $("#r-password").val()
+        fetch('https://area-georges.herokuapp.com/register', {
+            method: 'post', body: "user=" + userName + "&email=" + userEmail + "&password=" + userPassword, headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        }).then((response) => {
+            console.log(response)
+            isloggedin();
+        })
+    }
+
+    function Login() {
+        userEmail = $("#l-email").val()
+        userPassword = $("#l-password").val()
+        fetch('https://area-georges.herokuapp.com/login', {
+            method: 'post', body: "email=" + userEmail + "&password=" + userPassword, headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        }).then((response) => {
+            response.json().then((res) => {
+                console.log(response)
+                if (res.msg != "none") {
+                    $('#staticBackdrop').modal('hide');
+                    localStorage.setItem("islogged", "logged");
+                    localStorage.setItem("userID", res.msg);
+                    setUserData();
+                } else {
+                    $("#l-msg-error").text("wrong Email or Password !");
+                }
+            })
+
+
+
+        })
+    }
+
+
+    function Logout() {
+        localStorage.clear();
+    }
+
+    $(".links-deco").click(function () {
+        Logout();
+    });
+
+
+    $(".registerPopupBtn").click(function () {
+        Register();
+        $('#staticBackdrop').modal('hide');
+    });
+
+    $(".loginPopupBtn").click(function () {
+        Login();
+    });
+
+    $("#registerPopupTab").click(function () {
+        $("#registerPopupTab").removeClass("btn-switch-dark");
+        $("#registerPopupTab").addClass("btn-switch-orange");
+        $("#loginPopupTab").removeClass("btn-switch-orange");
+        $("#loginPopupTab").addClass("btn-switch-dark");
+
+        if (!$("#registerPopupTabs").hasClass("show active")) {
+            $("#registerPopupTabs").addClass("show active");
+        }
+        $("#loginPopupTabs").removeClass("show active");
+    });
+
+    $("#loginPopupTab").click(function () {
+        $("#loginPopupTab").removeClass("btn-switch-dark");
+        $("#loginPopupTab").addClass("btn-switch-orange");
+        $("#registerPopupTab").removeClass("btn-switch-orange");
+        $("#registerPopupTab").addClass("btn-switch-dark");
+
+        if (!$("#loginPopupTabs").hasClass("show active")) {
+            $("#loginPopupTabs").addClass("show active");
+        }
+        $("#registerPopupTabs").removeClass("show active");
+    });
+
+    function setUserData() {
+        console.log(localStorage.getItem("userID"))
+        fetch('https://area-georges.herokuapp.com/profil', {
+            method: 'post', body: "userId=" + localStorage.getItem("userID"), headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        })
+            .then((response) => {
+                response.json().then((res) => {
+                    $("#nav-user-name").text(res.name);
+                    $(".card-user-email").text(res.email);
+                });
+            });
+    }
+
+
+    function isloggedin() {
+        if (localStorage.getItem("islogged") != "logged") {
+            $('#staticBackdrop').modal('show');
+        }
+
+    }
+
+    $('body').click(function () {
+        isloggedin()
+    });
+
+    isloggedin()
+
+
+    if (localStorage.getItem("islogged") == "logged") {
+        setUserData();
+    }
+
+
+    // $('#main').load("/Html/Area_dashboard.html");
+
+
+
+</script>

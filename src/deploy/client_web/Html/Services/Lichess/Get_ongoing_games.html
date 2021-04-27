@@ -1,0 +1,15 @@
+
+
+<button class="btn" id="Lichess-connect">connect</button>
+
+<script>
+    $("#Lichess-connect").click( function() {
+        fetch('https://oauth.lichess.org/oauth/authorize', {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        }).then((response) => {
+        })
+    });
+</script>

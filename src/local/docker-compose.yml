@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  server:
+    build: server
+    ports:
+      - "8080:8080"
+  client_web:
+    image: nginx
+    volumes:
+      - ./client_web/src/:/usr/share/nginx/html/
+      - ./client_web/conf/:/etc/nginx/conf.d/
+    ports:
+      - "8081:8081"
+    environment: 
+      - NGINX_PORT=8081
+    depends_on:
+      - server
+  client_mobile:
+    build: mobile_client
+    volumes:
+        - ./client_web/src/:/app/mobile_app/
+    command: tail -f /dev/null

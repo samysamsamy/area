@@ -1,0 +1,111 @@
+
+       TECHNICAL DOCUMENTATION
+
+            ------------
+                AREA
+            ------------
+
+
+
+    ------ DATABASE CONTENT ------
+
+Area DB table:
+
+    id	            int(11) Auto Increment	
+    userID      	int(11)	
+    areaName    	char(100)	
+    serviceAction	char(100)	
+    widgetAction	char(100)	
+    areaondition    char(100)	
+    serviceReaction	char(100)	
+    widgetReaction	char(100)	
+    areaInstruction char(100)
+
+User DB table:
+
+    ID	            int(255) Auto Increment	
+    name	        varchar(100)	
+    lastName        varchar(100) NULL	
+    email       	varchar(100)	
+    password    	varchar(100)	
+    Services    	varchar(255) NULL
+
+Token DB table:
+
+    id	            int(11) Auto Increment	
+    userId	        int(11)	
+    services	    char(1)	
+    widget	        char(1)	
+    token	        int(11)
+
+
+
+
+    ------ DATABASE FUNCTIONS ------
+
+Login:
+
+    route :     /login
+    method :    post
+
+    body :  - email
+            - password
+
+    return value:   - True -> (String) userID
+                    - False -> (String) "none"
+
+Register:
+
+    route :     /register
+    method :    post
+
+    body :  - name
+            - email
+            - password
+
+    return value:
+
+Get user information:
+
+    route :     /profil
+    method :    post
+
+    body :  - userId
+
+    return value:   - True -> (JSON) user DB table
+                    - False -> (String) "nope"
+
+
+Create a New Area:
+
+    route :     /newArea
+    method :    post
+
+    body :  - userId
+            - areaName
+            - serviceAction
+            - widgetAction
+            - areaCondition
+            - serviceReaction
+            - widgetReaction
+            - areaInstruction
+
+    return value:
+
+
+Get user Areas:
+
+    route :     /areaFromId
+    method :    post
+
+    body :  - userID
+
+    return value:   - True -> (JSON) array of Area DB table
+
+
+Get all Areas of all Users:
+
+    route :     /areas
+    method :    get
+
+    return value:   - True -> (JSON) array of Area DB table

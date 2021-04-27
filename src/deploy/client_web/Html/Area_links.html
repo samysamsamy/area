@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <META name="language" content="fr">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="Epitech: Dashboard project">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <script src="../Scripts/libs/jquery.js"></script>
+    <script src="../Scripts/libs/popper.js"></script>
+    <script src="../Scripts/libs/bootstrap.js"></script>
+    <script src="../Scripts/libs/mdb.js"></script>
+    <script src="../Scripts/libs/jquery-ui.js"></script>
+    <script src="../Scripts/libs/jquery-ui-touch-punch.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/libs/mdb.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/fonts.css">
+
+    <title>AREA</title>
+</head>
+
+<style>
+    .btn-switch-orange {
+        background-color: #ff4b08 !important;
+        color: black !important;
+    }
+
+    .btn-switch-dark {
+        background-color: #424041 !important;
+        color: white !important;
+    }
+
+    .underline-text {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="container-fluid">
+                <h1 class="navbar-brand" style="color:#ff4b08; font-size: 200%;">Area <span
+                        style="color:#ffa908; font-size: 30%;">v1.12.1</span></h1>
+            </div>
+            <div class="col-6 text-right">
+                <h5 class="text-white">Welcome <span id="nav-user-name">Stranger</span></h5>
+                <a class="text-white btn btn-sm btn-dark links-deco">log out</a>
+            </div>
+        </div>
+        <div class="col-12">
+            <a class="text-white mr-5 ml-3" id="dashboard-navBtn" href="../index.html">Dashboard</a>
+            <a class="text-white mr-5" id="service-navBtn" href="Area_service_widget.html">Services / Widgets</a>
+            <a class="text-white" id="links-navBtn">Create Links</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="col-12 row" id="main">
+
+        <div class="card m-3 col-3" style="background-color: #252525;">
+            <div class="card-body text-white">
+                <h5 style="color: #ff4b08;">Services</h5>
+                <br>
+                <h5 style="text-transform: uppercase; color: #ff4b08;">Actions</h5>
+                <div class="service-list">
+                    <p>
+
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseOpenWeather" aria-expanded="false"
+                        aria-controls="collapseOpenWeather">
+                        OpenWeather <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseOpenWeather">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white"
+                                id="OpenWeather-Current_weather_data"><span style="opacity: 0;">........</span>Current
+                                weather
+                                data</p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseYoutube" aria-expanded="false"
+                        aria-controls="collapseLichess">
+                        Youtube <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseYoutube">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white"
+                                id="Youtube-New_Video_In_Channel">
+                                <span style="opacity: 0;">........</span>New Video In Channel
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseSpotifyA" aria-expanded="false"
+                        aria-controls="collapseSpotifyA">
+                        Spotify <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseSpotifyA">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white"
+                                id="Spotify-New_Music_In_Playlist">
+                                <span style="opacity: 0;">........</span>New Music In Playlist
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseTrelloA" aria-expanded="false"
+                        aria-controls="collapseTrelloA">
+                        Trello <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseTrelloA">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white"
+                                id="Trello-Get_Created_Card">
+                                <span style="opacity: 0;">........</span>Get Created Card
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseDiscordA" aria-expanded="false"
+                        aria-controls="collapseDiscordA">
+                        Discord <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseDiscordA">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white" id="Discord-Get_Messages">
+                                <span style="opacity: 0;">........</span>Get Messages
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseGithub" aria-expanded="false"
+                        aria-controls="collapseGithub">
+                        Github <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseGithub">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="action-widget-item text-white" id="Github-New_Issue">
+                                <span style="opacity: 0;">........</span>New Issue
+                            </p>
+                            <p style="cursor: pointer;" class="action-widget-item text-white" id="Github-New_Commit">
+                                <span style="opacity: 0;">........</span>New Commit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h5 style="text-transform: uppercase; color: #ff4b08;">Reactions</h5>
+                <div class="service-list">
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseSendGrid" aria-expanded="false"
+                        aria-controls="collapseSendGrid">
+                        SendGrid <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseSendGrid">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white" id="SendGrid-Mail_Send">
+                                <span style="opacity: 0;">........</span>Mail Send
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseTrelloR" aria-expanded="false"
+                        aria-controls="collapseTrelloR">
+                        Trello <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseTrelloR">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white"
+                                id="Trello-Create_a_new_Card">
+                                <span style="opacity: 0;">........</span>Create a new Card
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseDiscordR" aria-expanded="false"
+                        aria-controls="collapseDiscordR">
+                        Discord <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseDiscordR">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white"
+                                id="Discord-Send_Messages">
+                                <span style="opacity: 0;">........</span>Send Message
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseSpotifyR" aria-expanded="false"
+                        aria-controls="collapseSpotifyR">
+                        Spotify <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseSpotifyR">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white"
+                                id="Spotify-Add_Music_In_Playlist">
+                                <span style="opacity: 0;">........</span>Add Music
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseClicksend" aria-expanded="false"
+                        aria-controls="collapseClicksend">
+                        Clicksend <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseClicksend">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white" id="Clicksend-Send_SMS">
+                                <span style="opacity: 0;">........</span>Send sms
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- <p>
+                    <h5 type="button" data-toggle="collapse" data-target="#collapseFacebook" aria-expanded="false"
+                        aria-controls="collapseFacebook">
+                        Facebook <i class="fas fa-caret-down"></i>
+                    </h5>
+                    </p>
+                    <div class="collapse" id="collapseFacebook">
+                        <div class="" style="background-color: #252525; box-shadow: none;">
+                            <p style="cursor: pointer;" class="reaction-widget-item text-white"
+                                id="Facebook-Pages_Messaging">
+                                <span style="opacity: 0;">........</span>Pages Messaging
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card m-3 col-8" style="background-color: #252525;">
+            <div class="card-body">
+                <div class="col-12 col">
+                    <p style="font-size: 130%;"><span style="color: #ff4b08;">Area name </span> <input id="areaName"
+                            value="DefaultName"
+                            style="background-color: #252525; color: white; border: none; border-bottom: solid 1px white;">
+                    </p>
+                    <div class="col-12 text-center">
+                        <h5 class="card-title" style="color: #ff4b08; font-size: 170%;">IF</h5>
+                    </div>
+                    <div class="col-12 row mt-5">
+                        <div class="col-4">
+                            <p class="text-white" style="border-left: solid 2px #ff4b08; padding-left: 5px;">Action</p>
+                            <p style="font-size: 130%;"><span style="color: #ff4b08;">Service </span> <span
+                                    id="action-Service"></span></p>
+                            <p style="font-size: 130%;"><span style="color: #ff4b08;">Widget </span> <span
+                                    id="action-Widget"></span></p>
+                            <div id="button-container" class="text-center"><button class="btn text-dark  btn-white"
+                                    id="btn-connect-action" style="display: none;">connect</button></div>
+                            <div id="button-container" class="text-center"><button class="btn text-dark  btn-white"
+                                    id="btn-disconnect-action" style="display: none;">disconnect</button></div>
+
+                        </div>
+                        <div class="col-8" style="min-height: 200px;">
+
+                            <div class="col-12" id="conditionArea">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-color: #ff4b08">
+                <div class="col-12 col">
+                    <div class="col-12 text-center">
+                        <h5 class="card-title" style="color: #ff4b08; font-size: 170%;">THEN</h5>
+                    </div>
+                    <div class="col-12 row mt-5">
+                        <div class="col-4">
+                            <p class="text-white" style="border-left: solid 2px #ff4b08; padding-left: 5px;">Reaction
+                            <p style="font-size: 130%;"><span style="color: #ff4b08;">Service </span> <span
+                                    id="reaction-Service"></span></p>
+                            <p style="font-size: 130%;"><span style="color: #ff4b08;">Widget </span> <span
+                                    id="reaction-Widget"></span><br></p>
+                            <div id="button-container" class="text-center"><button class="btn text-dark  btn-white"
+                                    id="btn-connect-reaction" style="display: none;">connect</button></div>
+                            <div id="button-container" class="text-center"><button class="btn text-dark  btn-white"
+                                    id="btn-disconnect-reaction" style="display: none;">disconnect</button></div>
+                            </p>
+
+                        </div>
+                        <div class="col-8" style="min-height: 200px;">
+
+                            <div class="col-12" id="instructionArea">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-sm" style="background-color: #ff4b08; color: white;"
+                            id="createArea">Create
+                            Area</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <p id="error-msg" style="color: red"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    $(".action-widget-item").click(function () {
+        var service = $(this).attr('id').split("-")[0];
+        var widget = $(this).attr('id').split("-")[1];
+
+        $("#action-Service").text(service)
+        $("#action-Widget").text(widget.replace(/_/g, ' '))
+        $("#conditionArea").load("./Services/" + service + "/" + widget + ".html")
+    });
+
+
+    $(".reaction-widget-item").click(function () {
+        var service = $(this).attr('id').split("-")[0];
+        var widget = $(this).attr('id').split("-")[1];
+
+        $("#reaction-Service").text(service)
+        $("#reaction-Widget").text(widget.replace(/_/g, ' '))
+        $("#instructionArea").load("./Services/" + service + "/" + widget + ".html")
+    });
+
+    function isBlank(str) {
+        return (!str || /^\s*$/.test(str));
+    }
+
+    $("#createArea").click(function () {
+
+        const areaName = $("#areaName").val().replace(/ /g, '_')
+        const actionService = $("#action-Service").text().replace(/ /g, '_')
+        const actionWidget = $("#action-Widget").text().replace(/ /g, '_')
+        const reactionService = $("#reaction-Service").text().replace(/ /g, '_')
+        const reactionWidget = $("#reaction-Widget").text().replace(/ /g, '_')
+
+        var condition = ""
+        var instruction = ""
+
+        Array.from($(".areaConditionArgs")).forEach(element => {
+            condition += $(element).attr("id") + "=" + $(element).val() + "#"
+        });
+
+        Array.from($(".areaInstructionArgs")).forEach(element => {
+            instruction += $(element).attr("id") + "=" + $(element).val() + "#"
+        });
+
+
+        console.log("condition : ", condition)
+        console.log("instruction : ", instruction)
+
+
+        if (isBlank(areaName)) {
+            $("#error-msg").text("you must give a name to your Area")
+        }
+        else if (isBlank(actionService)) {
+            $("#error-msg").text("you must select one Action to your Area")
+        }
+        else if (isBlank(reactionService)) {
+            $("#error-msg").text("you must select one Reaction to your Area")
+        }
+        else if (isBlank(condition)) {
+            $("#error-msg").text("you must add a condition for your Action")
+        }
+        else if (isBlank(actionService)) {
+            $("#error-msg").text("you must select an instruction for your Reaction")
+        }
+
+
+        else {
+            fetch('https://area-georges.herokuapp.com/newArea', {
+                method: 'post',
+                body: "userId=" + localStorage.getItem("userID") +
+                    "&areaName=" + areaName +
+                    "&serviceAction=" + actionService +
+                    "&widgetAction=" + actionWidget +
+                    "&serviceReaction=" + reactionService +
+                    "&widgetReaction=" + reactionWidget +
+                    "&condition=" + condition.slice(0, -1) +
+                    "&instruction=" + instruction.slice(0, -1),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+            }).then((response) => {
+                window.location.href = "../index.html";
+            })
+
+        }
+    });
+
+
+</script>

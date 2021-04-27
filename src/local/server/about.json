@@ -1,0 +1,249 @@
+{
+    "client": {
+        "host": "176.149.36.30"
+    },
+    "server": {
+        "current_time": 0,
+        "services": [
+            {
+                "name": "Youtube",
+                "actions": [
+                    {
+                        "name": "New_Video_In_Channel",
+                        "description": "Event Listener: Event -> A new Youtube Video is uploaded",
+                        "arguments": [
+                            {
+                                "name": "channelId",
+                                "description": "ID of the Youtube Channel"
+                            }
+                        ],
+                        "result": {
+                            "data": [
+                                {
+                                    "name": "youtubeVideoTitle",
+                                    "description": "Title of the Youtube Video"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "OpenWeather",
+                "actions": [
+                    {
+                        "name": "Current_weather_data",
+                        "description": "Get the Temperature of a city and compare it",
+                        "arguments": [
+                            {
+                                "name": "city",
+                                "description": "City you want to compare"
+                            },
+                            {
+                                "name": "operator",
+                                "description": "Operator to compare -> 'city' operator 'value'"
+                            },
+                            {
+                                "name": "temp",
+                                "description": "Temparature you want to compare with the city"
+                            }
+                        ],
+                        "result": {
+                            "data": [
+                                {}
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Spotify",
+                "actions": [
+                    {
+                        "name": "New_Music_In_Playlist",
+                        "description": "Event Listener: Event -> New Music Added to playlist",
+                        "arguments": [
+                            {
+                                "name": "playlistId",
+                                "description": "ID of the Spotify playlist"
+                            }
+                        ],
+                        "result": {
+                            "data": [
+                                {
+                                    "name": "SpotifyTrackName",
+                                    "description": "Name of the Music Added"
+                                },
+                                {
+                                    "name": "SpotifyTrackLink",
+                                    "description": "URL to the Spotify Music"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "reaction": [
+                    {
+                        "name": "Add_Music_In_Playslist",
+                        "description": "Add new music in given Spotify Playlist",
+                        "arguments": [
+                            {
+                                "name": "playlistId",
+                                "description": "Spotify Playlist ID"
+                            },
+                            {
+                                "name": "uris",
+                                "description": "Spotify Music URI link"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Trello",
+                "actions": [
+                    {
+                        "name": "Get_Create_Card",
+                        "description": "Event Listener: Event -> A new Card has been created",
+                        "arguments": [
+                            {
+                                "name": "boardId",
+                                "description": "ID of the Trello Board"
+                            }
+                        ]
+                    }
+                ],
+                "reaction": [
+                    {
+                        "name": "Create_A_New_Card",
+                        "description": "Create a new trello cardin given Trello list",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "description": "Name of the Card which will be added"
+                            },
+                            {
+                                "name": "desc",
+                                "description": "Description of the Card which will be added"
+                            },
+                            {
+                                "name": "idList",
+                                "description": "ID of the Trello list"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Discord",
+                "action": [
+                    {
+                        "name": "Get_Messages",
+                        "description": "Event Listener: Event -> A new Discord message has been send in given Discord Channel",
+                        "arguments": [
+                            {
+                                "name": "channel",
+                                "description": "ID of the channel you want to listen"
+                            },
+                            {
+                                "name": "startWith",
+                                "description": "A string you want the message start with"
+                            }
+                        ]
+                    }
+                ],
+                "reaction": [
+                    {
+                        "name": "Send_Messages",
+                        "description": "Send given message in given Discord channel",
+                        "arguments": [
+                            {
+                                "name": "channel",
+                                "description": "ID of the channel you want to send on"
+                            },
+                            {
+                                "name": "msg",
+                                "description": "message you want to send"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Github",
+                "action": [
+                    {
+                        "name": "New_Issue",
+                        "description": "Event Listener: Event -> A new Github Issue has been created",
+                        "arguments": [
+                            {
+                                "name": "owner",
+                                "description": "ID of the owner of the repository"
+                            },
+                            {
+                                "name": "repo",
+                                "description": "ID of the repository"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "New_Commit",
+                        "description": "Event Listener: Event -> A new Github Commit has been created",
+                        "arguments": [
+                            {
+                                "name": "owner",
+                                "description": "ID of the owner of the repository"
+                            },
+                            {
+                                "name": "repo",
+                                "description": "ID of the repository"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "SendGrid",
+                "reaction": [
+                    {
+                        "name": "Mail_Send",
+                        "description": "Will send a given mail to a given email adress",
+                        "arguments": [
+                            {
+                                "name": "subject",
+                                "description": "Subject of the mail"
+                            },
+                            {
+                                "name": "message",
+                                "description": "message of the mail"
+                            },
+                            {
+                                "name": "dest",
+                                "description": "receiver of the mail"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "ClickSend",
+                "reaction": [
+                    {
+                        "name": "Send_SMS",
+                        "descrition": "Send a given sms to a given number",
+                        "arguments": [
+                            {
+                                "name": "to",
+                                "description": "number of the receiver"
+                            },
+                            {
+                                "name": "msg",
+                                "description": "message you want to send"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

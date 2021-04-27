@@ -1,0 +1,16 @@
+<script>
+
+    if (window.location.hash) {
+        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        fetch('https://area-georges.herokuapp.com/microsoftOauthcallback', {
+            method: 'post',
+            body: hash,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            }
+        }).then((response) => { })
+  }
+</script>

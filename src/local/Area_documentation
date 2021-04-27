@@ -1,0 +1,43 @@
+
+        TECHNICAL DOCUMENTATION
+
+            ------------
+                AREA
+            ------------
+
+
+
+    ------ AREA'S USES DETAILS ------
+
+
+------------------------------------------------------------------
+When you create new area, add 'areaCondition' and 'areaInstruction'
+with this construction :    'arg1=value#arg2=value#arg3=value'
+Replace 'arg' and 'value' with following widget needs
+------------------------------------------------------------------
+
+Service | OpenWeather:
+
+widget | Current weather data:
+
+TYPE : Action
+
+ARGS :  city        | city you want the weather
+        operator    | operator in the condition, can be : '<' or '>' or '='
+        temp        | temparature you want to compare
+
+exemple: city=paris#operator=<#temp=18
+
+
+Service | Trello:
+
+widget | Create a new Card:
+
+TYPE : Reaction
+
+ARGS :  name        | name of your Card
+        desc        | description of your Card
+        idList      | Id of list where you want to create the Card
+
+exemple: name=Area test#desc=test all areas#idList=603aff339582273155cd96da
+
